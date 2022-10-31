@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, {useState} from 'react';
 function App() {
+  const [counter, Setcounter] = useState([])
+  const [input, Setinput] = useState("")
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Enter the task</h1>
+      <div className='flex'>
+        <input type="text" onChange={(e) => {Setinput(e.target.value)}} value = {input}/>
+        <button onClick={() => {Setcounter(counter.concat([input]))}}>Submit</button> {counter.map((task) => {return (<h1>{task}</h1>)})}
+      </div>
     </div>
   );
 }
